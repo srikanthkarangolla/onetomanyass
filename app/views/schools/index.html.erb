@@ -1,0 +1,46 @@
+<h1>Listing schools</h1>
+
+<table>
+  <tr>
+    <th>Address</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @schools.each do |school| %>
+  <tr>
+    <td></td>
+    <td><%= link_to 'Show', school %></td>
+    <td><%= link_to 'Edit', edit_school_path(school) %></td>
+    <td><%= link_to 'Destroy', school, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New School', new_school_path %>
+
+
+
+<h1>All Students with Schools</h1>
+<table>
+  <tr>
+    <th>School address</th>
+    <th>Student Name</th>
+    <th>Student Age</th>
+    <th></th>
+  </tr>
+
+<% @schools.each do |school| %>
+<% school.students.each do |student| %>
+  <tr>
+    <td><%= school.address %></td>
+    <td><%= student.name %></td>
+    <td><%= student.age %></td>
+    <td></td>
+  </tr>
+  <% end %>
+<% end %>
+</table>
